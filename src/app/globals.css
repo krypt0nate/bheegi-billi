@@ -1,4 +1,6 @@
 @import "tailwindcss";
+/* biome-ignore lint/suspicious/noUnknownAtRules: StyleX build-time directive */
+@stylex;
 
 :root {
   --background: #ffffff;
