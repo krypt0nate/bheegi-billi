@@ -4,9 +4,9 @@ import * as stylex from "@stylexjs/stylex";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 const backgroundImages = [
-  "/bheegi-billi-1.webp",
-  "/bheegi-billi-2.webp",
-  "/bheegi-billi-3.webp",
+  "/assets/background/bheegi-billi-1.webp",
+  "/assets/background/bheegi-billi-2.webp",
+  "/assets/background/bheegi-billi-3.webp",
 ] as const;
 
 const fadeIn = stylex.keyframes({
