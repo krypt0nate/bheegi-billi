@@ -43,7 +43,11 @@ function primeAudio() {
 
 if (typeof document !== "undefined") {
   for (const evt of ["pointerdown", "keydown"]) {
-    document.addEventListener(evt, primeAudio, { once: true, capture: true });
+    document.addEventListener(evt, primeAudio, {
+      once: true,
+      capture: true,
+      passive: true,
+    });
   }
 
   document.addEventListener("visibilitychange", () => {
@@ -53,10 +57,12 @@ if (typeof document !== "undefined") {
   });
 }
 
-fetch(HORN_SRC)
-  .then((r) => (r.ok ? r.arrayBuffer() : null))
-  .then((b) => (hornBytes = b))
-  .catch(() => {});
+if (typeof window !== "undefined") {
+  fetch(HORN_SRC)
+    .then((r) => (r.ok ? r.arrayBuffer() : null))
+    .then((b) => (hornBytes = b))
+    .catch(() => {});
+}
 
 async function loadHorn(ctx: AudioContext) {
   if (hornBuffer) return hornBuffer;
